@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import TeamsPage from './pages/TeamsPage';
+import CliLoginPage from './pages/CliLoginPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function PrivateRoute({ children }) {
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/cli-login" element={<CliLoginPage />} />
           <Route
             path="/dashboard"
             element={
