@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { loginUser } from '../services/ApiService';
-import { Button, TextField, Container, Typography, Box, Paper, Grid, Avatar } from '@mui/material';
+import { Button, TextField, Container, Typography, Box, Paper, Grid, Avatar, Link } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { Link as RouterLink } from 'react-router-dom';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -67,6 +68,13 @@ function LoginPage() {
           >
             Sign In
           </Button>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <Link component={RouterLink} to="/" variant="body2">
+                Back to Homepage
+              </Link>
+            </Grid>
+          </Grid>
         </Box>
       </Paper>
     </Container>
