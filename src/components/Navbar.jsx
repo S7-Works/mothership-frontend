@@ -15,6 +15,7 @@ function Navbar() {
                     </Link>
                 </Typography>
                 <Button color="inherit" component={RouterLink} to="/dashboard">Environments</Button>
+                <Button color="inherit" component={RouterLink} to="/deployments">Deployments</Button>
                 <Button color="inherit" component={RouterLink} to="/teams">Teams</Button>
                 <Button color="inherit" onClick={logout}>Logout</Button>
             </Toolbar>

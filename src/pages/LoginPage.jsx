@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { loginUser } from '../services/ApiService';
-import { Button, TextField, Container, Typography, Box } from '@mui/material';
+import { Button, TextField, Container, Typography, Box, Paper, Grid, Avatar } from '@mui/material';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -16,7 +17,6 @@ function LoginPage() {
     setError('');
     try {
       const data = await loginUser({ username, password });
-      // Assuming the login response returns a user object and a token
       auth.login(data.user, data.token);
       navigate('/dashboard');
     } catch (err) {
@@ -25,8 +25,11 @@ function LoginPage() {
   };
 
   return (
-    <Container maxWidth="xs">
-      <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <Container component="main" maxWidth="xs">
+      <Paper elevation={3} sx={{ marginTop: 8, padding: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <LockOutlinedIcon />
+        </Avatar>
         <Typography component="h1" variant="h5">
           Mothership Login
         </Typography>
@@ -55,7 +58,7 @@ function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {error && <Typography color="error">{error}</Typography>}
+          {error && <Typography color="error" align="center">{error}</Typography>}
           <Button
             type="submit"
             fullWidth
@@ -65,7 +68,7 @@ function LoginPage() {
             Sign In
           </Button>
         </Box>
-      </Box>
+      </Paper>
     </Container>
   );
 }

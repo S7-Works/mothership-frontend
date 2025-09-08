@@ -3,13 +3,15 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider, useAuth } from './context/AuthContext';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
+import DeploymentsPage from './pages/DeploymentsPage';
 import TeamsPage from './pages/TeamsPage';
-import CliLoginPage from './pages/CliLoginPage';
+import LogsPage from './pages/LogsPage';
+import HomePage from './pages/HomePage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function PrivateRoute({ children }) {
   const { token } = useAuth();
-  return token ? children : <Navigate to="/login" />;
+  return token ? children : <Navigate to="/" />;
 }
 
 function App() {
@@ -17,13 +19,21 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/cli-login" element={<CliLoginPage />} />
           <Route
             path="/dashboard"
             element={
               <PrivateRoute>
                 <DashboardPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/deployments"
+            element={
+              <PrivateRoute>
+                <DeploymentsPage />
               </PrivateRoute>
             }
           />
@@ -35,7 +45,15 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="*" element={<Navigate to="/dashboard" />} />
+          <Route
+            path="/environments/:id/logs"
+            element={
+              <PrivateRoute>
+                <LogsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </AuthProvider>
