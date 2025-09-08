@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Typography, Box, Button, Paper, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Navbar from '../components/Navbar';
+import { Link as RouterLink } from 'react-router-dom';
 
 const HeroSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(12, 0),
@@ -37,7 +38,7 @@ function HomePage() {
           <Typography variant="h5" component="p" paragraph>
             Your all-in-one platform for seamless development environments. Launch, manage, and collaborate on projects with ease.
           </Typography>
-          <Button variant="contained" color="secondary" size="large">
+          <Button component={RouterLink} to="/signup" variant="contained" color="secondary" size="large">
             Get Started
           </Button>
         </Container>
