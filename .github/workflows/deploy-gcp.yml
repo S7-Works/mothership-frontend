@@ -42,3 +42,7 @@ jobs:
     - name: Deploy to GCS
       run: |-
         gsutil -m rsync -d -r ./dist gs://${{ env.GCS_BUCKET }}
+
+    - name: Invalidate CDN Cache
+      run: |-
+        gcloud compute url-maps invalidate-cdn-cache mothership-frontend-url-map --path "/*" --project="${{ env.PROJECT_ID }}"
