@@ -43,7 +43,7 @@ jobs:
       run: |-
         gsutil -m rsync -d -r ./dist gs://${{ env.GCS_BUCKET }}
         gsutil -h "Cache-Control:no-cache, no-store, must-revalidate" \
-          -m rsync -d -r ./dist/index.html gs://${{ env.GCS_BUCKET }}/index.html
+          cp ./dist/index.html gs://${{ env.GCS_BUCKET }}/index.html
 
     - name: Invalidate CDN Cache
       run: |-
