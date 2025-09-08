@@ -51,6 +51,21 @@ export const terminateEnvironment = async (token, instanceId) => {
     return response.json();
 };
 
+export const getLogs = async (token, instanceId) => {
+    const response = await fetch(`${LAUNCHER_API_URL}/environments/${instanceId}/logs/`, {
+        headers: getAuthHeaders(token),
+    });
+    if (!response.ok) {
+        throw new Error('Failed to fetch logs');
+    }
+    return response.json();
+};
+
+export const fetchOrgsAndTeams = async (token) => {
+    // Placeholder implementation
+    return { orgs: [], teams: [] };
+};
+
 export const createDeployment = async (token, { subdomain }) => {
     const response = await fetch(`${LAUNCHER_API_URL}/deploys/`, {
         method: 'POST',
