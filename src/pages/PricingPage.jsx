@@ -118,7 +118,7 @@ function PricingPage() {
                 <CardActions>
                   <Button
                     fullWidth
-                    variant={tier.buttonVariant as 'outlined' | 'contained'}
+                    variant={tier.buttonVariant}
                     component={RouterLink}
                     to="/signup"
                   >
