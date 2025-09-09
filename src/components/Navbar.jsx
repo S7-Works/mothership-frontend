@@ -22,7 +22,10 @@ function Navbar() {
                         <Button color="inherit" onClick={logout}>Logout</Button>
                     </>
                 ) : (
-                    <Button color="inherit" component={RouterLink} to="/login">Login</Button>
+                    <>
+                        <Button color="inherit" component={RouterLink} to="/pricing">Pricing</Button>
+                        <Button color="inherit" component={RouterLink} to="/login">Login</Button>
+                    </>
                 )}
             </Toolbar>
         </AppBar>

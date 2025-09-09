@@ -8,6 +8,7 @@ import TeamsPage from './pages/TeamsPage';
 import LogsPage from './pages/LogsPage';
 import HomePage from './pages/HomePage';
 import SignUpPage from './pages/SignUpPage';
+import PricingPage from './pages/PricingPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function PrivateRoute({ children }) {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
           <Route
             path="/dashboard"
             element={
