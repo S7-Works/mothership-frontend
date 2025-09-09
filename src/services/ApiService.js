@@ -1,4 +1,4 @@
-const API_URL = 'https://api.mothershipdevelop.com';
+const API_URL = 'https://api.buttrbase.com';
 const LAUNCHER_API_URL = 'https://launcher.mothershipdevelop.com';
 
 const getAuthHeaders = (token) => ({
