@@ -33,13 +33,13 @@ function HomePage() {
       <HeroSection>
         <Container maxWidth="md">
           <Typography variant="h2" component="h1" gutterBottom>
-            Welcome to Mothership
+            Cloud Hosting That's Finally Simple
           </Typography>
           <Typography variant="h5" component="p" paragraph>
-            Your all-in-one platform for seamless development environments. Launch, manage, and collaborate on projects with ease.
+            Stop overpaying for confusing cloud services. Get a powerful server with 1 vCPU, 2GB of RAM, and 40GB of SSD storage for a flat **$5/month**.
           </Typography>
-          <Button component={RouterLink} to="/signup" variant="contained" color="secondary" size="large">
-            Get Started
+          <Button component={RouterLink} to="/pricing" variant="contained" color="secondary" size="large">
+            See Our Insane Pricing
           </Button>
         </Container>
       </HeroSection>
